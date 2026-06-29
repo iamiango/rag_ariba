@@ -1,0 +1,50 @@
+# Python virtual environment
+ariba_env/
+venv/
+.venv/
+env/
+
+# Embedding model (too large)
+bge-large-en-v1.5/
+
+# ChromaDB database (generated data)
+chroma_db/
+
+# BM25 index (generated data)
+bm25_index/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test results and evaluation outputs
+test_rag_simple_results.json
+evaluation_results_*.json
+evaluation_comprehensive_report_*.json
+
+# Temporary files
+*.tmp
+*.bak
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/

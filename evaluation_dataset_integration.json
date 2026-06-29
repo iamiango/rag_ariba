@@ -1,0 +1,100 @@
+[
+  {
+    "question": "在SAP ERP和SAP S/4HANA中配置发货通知以与SAP Business Network集成时，哪一节描述了“接收数量为零的发货通知”的配置流程？",
+    "ground_truth": "Receiving Ship Notices with Zero Quantities [page 343]",
+    "context": "The following sections describe the procedures to configure ship notice in SAP ERP and SAP S/4HANA for\nintegration with SAP Business Network:\nReceiving Ship Notices with Zero Quantities [page 343]\nConfiguring the BAdI for Ship Notices with Component Information [page 343]\nConfiguring Shipcontrol Level Comments [page 344]\nMaintaining Carrier Information for Vendors [page 344]\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\n342 PUBLIC Configuring Supported Transactions",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba系统（通过SAP GUI执行ABAP程序）中配置错误消息时，若需为“授权错误”这一具体业务异常场景设置一条处理类错误（PRE）消息，应选择哪个Error Category值？并说明该值的构成逻辑及其与文档中所列其他PRE子类型（如PRE.VAE）的命名一致性依据。",
+    "ground_truth": "应选择 Error Category 值为 **PRE.AUE**。",
+    "context": "Procedure\n1. Run the transaction code SE38.\nThe ABAP Editor: Initial Screen screen appears.\n2. Enter /SAPPO/SYS_VALUES_DISPLAY as the name of the Program.\n3. Click Execute\nThe Display System Settings page appears.\n4. Select Software Components and click Execute.\n5. Verify whether the configured entries are available or not.\n6. Return to Display System Settings page\n7. Repeat steps 4 and 5 for each of the following settings:\n• Business Processes\n• Object Types\nConfiguring Error Messages\nThe error messages are categorized into processing errors (PRE), determination and conversion (DCE), and error\nconflict (CON). You cannot add or delete an error category. However, you can configure error messages for each\nerror category.\nContext\nConfigure an error message for an error category. Enter information for the following fields:\n• Application Area - Specify the application area of the error message that you want to configure.\n• MsgNo - Specify the message number of the error message.\n• Error Category - Specify a value corresponding to the error category.\nError Category Description Value\nProcessing error (PRE) Authorization error PRE.AUE\nValue error PRE.VAE",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "在Ariba与SAP集成配置中，用于维护移动类型（Movement Type）的IMG活动名称是什么？",
+    "ground_truth": "Maintain Movement Types",
+    "context": "2. Click SAP Reference IMG.\nThe Display IMG screen appears.\n3. Navigate to Integration with Other SAP Components Managed Gateway for Spend&Network for Buyer\nSAP Ariba Procurement Integration Application Specific Settings Export Goods Receipt .\n4. Click IMG-Activity for Maintain Movement Types.\nThe Change View \"Ariba Movement Type\": Overview page appears.\n5. Maintain the following parameters:\n• Movement Type: Specify a key for the type of goods movement. For example, 101.\n• Accept: Specify the movement type indicator. Check to indicate Accept or uncheck to indicate Reject.\n6. Click Save.\nConfiguring User Profile Parameters to Activate a Collective Slip for\nGoods Receipts\nUse this procedure to configure user profile parameters to activate a collective slip for goods receipts.\nContext\nConfigure the users who can activate a collective slip for goods receipts.\nProcedure\n1. Run the transaction code SPRO.\nThe Customizing: Execute Project screen appears.\n2. Click SAP Reference IMG.\nThe Display IMG screen appears.\n3. Navigate to Integration with Other SAP Components Managed Gateway for Spend&Network for Buyer",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "导入物料清单（Bill of Materials）是从哪个系统到哪个SAP Ariba模块？",
+    "ground_truth": "从SAP ERP到SAP Ariba Sourcing。",
+    "context": "Common Settings to Import Master Data for All SAP Ariba Solutions. . . . . . . . . . . . . . . . . . . . . . . . . . .59\nConfiguring External Commands for Operating System. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .60\nConfiguring Ariba Incremental Extract Event. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62\nConfiguring Ariba Master Data Incremental Field Restrictions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63\nConfiguring Ariba User HR Event Linkage. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .64\nConfiguring Connection Parameters. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66\nMaintaining System ID for Master Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67\nMaintaining Date and Time Stamp for Master Data. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .67\nImporting Bill of Materials from SAP ERP to SAP Ariba Sourcing. . . . . . . . . . . . . . . . . . . . . . . . . . . 68",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "当用户在Ariba文档中点击一个带有“外部网站”图标（即表明链接指向非SAP托管网站）的超链接时，根据文档中的法律免责声明，用户需同意哪些关键条款？这些条款分别涉及内容归属、产品主张限制、SAP对链接内容的态度与担保责任，以及SAP的法律责任边界，请综合说明。",
+    "ground_truth": "当用户点击带有“外部网站”图标（即指向非SAP托管网站）的超链接时，根据文档中的《Important Disclaimers and Legal Information》，用户需同意以下四项关键条款：",
+    "context": "Important Disclaimers and Legal Information\nHyperlinks\nSome links are classified by an icon and/or a mouseover text. These links provide additional information.\nAbout the icons:\n•\nLinks with the icon : You are entering a Web site that is not hosted by SAP. By using such links, you agree (unless expressly stated otherwise in your agreements\nwith SAP) to this:\n•\nThe content of the linked-to site is not SAP documentation. You may not infer any product claims against SAP based on this information.\n•\nSAP does not agree or disagree with the content on the linked-to site, nor does SAP warrant the availability and correctness. SAP shall not be liable for any\ndamages caused by the use of such content unless damages have been caused by SAP's gross negligence or willful misconduct.\n•\nLinks with the icon : You are leaving the documentation for that particular SAP product or service and are entering an SAP-hosted Web site. By using such links,\nyou agree that (unless expressly stated otherwise in your agreements with SAP) you may not infer any product claims against SAP based on this information.\nVideos Hosted on External Platforms",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "在将SAP Ariba采购集成从旧版Ariba Cloud Integration Adapter迁移至SAP Integration Suite（含Managed Gateway for Spend Management）或SAP Business Network的过程中，若原有集成中已实现CHANGE_SES_RESPONSE方法以处理供应商响应变更（如对采购订单的确认/拒绝），该方法是否仍可继续使用？若不可用，其根本原因是什么？这对企业迁移路径和集成设计会产生哪些关键影响？",
+    "ground_truth": "CHANGE_SES_RESPONSE方法在SAP Integration Suite、Managed Gateway for Spend Management以及SAP Business Network中**不可用**，且已被明确弃用。其根本原因是：新版集成架构（基于SAP Integration Suite及托管网关）采用标准化、事件驱动的API模型与预定义的集成内容（如SAP BTP Integration Suite中的Spend Management integration content），不再支持旧版Ariba Cloud Integration Adapter中依赖的、面向会话（session-based）和状态化（stateful）的自定义ABAP RFC方法（如CHANGE_SES_RESPONSE）。该方法原设计用于SAP ERP/S/4HANA与Ariba Cloud Integration Adapter之间的紧耦合RFC通信，而新架构强制推行松耦合、REST/OData优先、无状态的消息交换范式，并通过预置的“Purchase Order Response”事件流（如via SAP Business Network’s PO Acknowledgement APIs）替代人工干预式响应处理。因此，企业在迁移时必须重构集成逻辑——停用所有对CHANGE_SES_RESPONSE的调用，改用SAP官方提供的标准事件订阅机制（如通过SAP Integration Suite订阅SAP Business Network发出的`PurchaseOrderAcknowledgementCreated`事件），并基于OData V4 API（如`/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV`或SAP Business Network Partner API）实现响应数据的同步与状态更新；否则将导致集成中断、响应丢失及采购闭环流程断裂。此变更已在《Migration Guide》第76页明确列为关键不兼容项（\"The method CHANGE_SES_RESPONSE is not available...\"），属于必须在迁移前完成代码适配与端到端测试的核心技术依赖项。",
+    "context": "The method CHANGE_SES_RESPONSE is not available with SAP Integration Suite, managed gateway for spend\nmanagement and SAP Business Network. If you have implemented the CHANGE_SES_RESPONSE method while\nintegrating this transaction with your SAP ERP or SAP S/4HANA using SAP Ariba network adapter, you must\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nMigration Guide\n76 PUBLIC Migrating from SAP Ariba Cloud Integration Adapter",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "用于重新发送质量检验文档的事务代码是什么？",
+    "ground_truth": "ARBCIG_QINS_RESEND",
+    "context": "Resending the Quality Inspection Documents\nUse this procedure to resend the quality inspection documents.\nContext\nIn some cases, when the buyer sends the quality inspection documents to SAP Business Network and they fail\ndue to technical reasons. Buyers can send the quality inspection documents again from the SAP ERP system by\nrunning the program ARBCIG_RESEND_QINSP_REQ_CRTD.\nProcedure\n1. Run the transaction code ARBCIG_QINS_RESEND.\n2. Enter the details for the inspection lots in the Inspection Lot field.\n3. Click Execute.\nImplementing the BAdI for Quality Inspection Review\nUse this procedure to implement the BAdI for quality inspection review.\nContext\nImplement the BAdI QE_SAVE to send the reviewed status (accepted or rejected) for the characteristics of the\nmaterial item to suppliers on SAP Business Network. As a buyer, you can lock or unlock the characteristics for the\nmaterial item in an inspection lot after reviewing the inspection result and send the information to SAP Business\nNetwork through the in the QualityInspectionRequest cXML document.\nUse the transaction code QE51N to lock the result for a specific characteristic. When you lock the results, this",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "在配置从SAP S/4HANA Cloud或SAP S/4HANA发送文档到SAP Business Network时，需要对每种所需文档类型执行什么操作？",
+    "ground_truth": "重复该配置过程（即“Use this procedure to configure the documents…”）针对每种所需的文档类型。",
+    "context": "• You have signed in to SAP Integration Suite.\n• You have downloaded the Automation of Source-to-Pay with SAP Business Network (42K) Using SAP\nIntegration Suite package to your Design workspace.\n• You have created a package in your workspace to copy the integration flows.\n• You have created user credentials for inbound and outbound communication.\nContext\nUse this procedure to configure the documents sent from SAP S/4HANA Cloud or SAP S/4HANA to SAP Business\nNetwork. Repeat the procedure for each of the document types required in your business scenario. For example, if\nyour business scenario involves request for quotation and purchase order documents, repeast this procedure for\nthe Request for Quotation and Purchase Order artifacts.\nProcedure\n1. In the Automation of Source-to-Pay with SAP Business Network (42K) Using SAP Integration Suite\npackage, copy the required artifact to the package that you've created in your Design workspace. For more\ninformation on the artifacts, see Artifacts in the Automation of Source-to-Pay with SAP Business Network\n(42K) Using SAP Integration Suite Package [page 733].\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba系统中，若某服务类采购合同需同时应用“折扣”和“附加费用”（Surcharge）且均基于毛价（Gross）计算，应分别选用哪两个参数来配置绝对金额形式的折扣与附加费用？请结合文档中各参数的适用条件与命名逻辑进行推理说明。",
+    "ground_truth": "应分别选用 **Discount Abs on Gross**（参数值示例：RB00）和 **Surcharge Abs on Gross**（参数值示例：ZB00）。",
+    "context": "Parameter Description Example values\nspecification item. Applicable only\nwhen taxes and allowances are applied.\nDiscount item abs. Supports the details of the deductions 01RA\navailable for the service specification\nitem. Applicable only when taxes and\nallowances are applied.\nQuantityContract Supports the quantity type of contract MK\ndocument with service items.\nValueContract Specifies the document type (value WK\ncontract) for the blanket purchase\nagreement.\nHeaderTextID Supports the long text description ID K01\nspecified at the header-level.\nItem Text ID Supports the long text description ID K01\nspecified at the line item level.\nDiscount % on Gross Supports the details of the percentage RA00\nof deductions available for the items.\nApplicable only when taxes and\nallowances are applied.\nDiscount Abs on Gross Supports the details of the deductions RB00\navailable for the items. Applicable only\nwhen taxes and allowances are applied.\nGross Price for Item Supports the gross pricing condition of PB00\nthe service item.\nSurcharge Abs on Gross Supports the summary amount in the ZB00\nContractRequest document.\nSurcharge % on Gross Supports the AdditionalCost ZA00\npercentage amount in the",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "在Ariba与SAP集成场景中，若客户需要在采购订单确认（Order Confirmation）被系统批准**之前**、但**尚未更新采购订单主数据**时，执行自定义校验逻辑（例如检查供应商确认数量是否超出原始PO行项目允许的容差范围），应实现BAdI ARBCIG_ORDER_CONFRMN_APRVL中的哪一个方法？并说明选择该方法的理由，需结合方法触发时机、数据可用性及文档中“PRE_PROCESSING”语义进行推理。",
+    "ground_truth": "应实现 **PRE_PROCESSING_CONFRMN_UPD** 方法。",
+    "context": "Approval .\nTo see more information about the BAdI ARBCIG_ORDER_CONFRMN_APRVL, click the IMG activity\ndocumentation node of BAdIs for Order Confirmation Approval.\n4. Implement the standard BAdI. For more information about implementing a BAdI, see How to Implement a BAdI.\nBAdI name: ARBCIG_ORDER_CONFRMN_APRVL\nMethod Description\nPRE_PROCESSING_CONFRMN_UPD To customize the purchase order confirmation flow.\nPRE_PROCESSING_PO_UPD To customize the purchase order change flow.\nPOST_PROCESSING To customize the purchase order after the confirmation ap-\nproval processing.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\n338 PUBLIC Configuring Supported Transactions",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "在配置SAP ERP与SAP Business Network（通过SAP Integration Suite托管网关）的供应商集成时，若需确保销售订单相关的输出（如采购订单确认或发票通知）能正确触发并发送给“售达方（Sold-to Party）”，应如何在系统中完成端到端的输出确定（Output Determination）配置？请结合传输媒介设置、合作伙伴函数定义、输出类型条件记录维护以及相关ABAP程序/例程，说明关键步骤及其技术依据。",
+    "ground_truth": "为实现销售订单相关输出（如BA00输出类型）向售达方的可靠触发与发送，需完成以下四个层面的协同配置，严格遵循《SAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network 配置指南》（ERP供应商集成部分）：",
+    "context": "• Transm. Medium: Special function\n• Program: ARBCIS_NAST_TRIGGER_OUTBOUND\n• FORM routine: SEND_DOCUMENT\n13.Click Save.\n14.Click BA00, and then double-click Partner Functions.\nThe Display View \"Partner functions\": Overview screen opens.\n15.In the Partner Functions section, create an entry as follows:\n• Medium: Special function\n• Function: SP\n• Description: Sold-to Party\n16.Click Save.\n17. Select application V1 and click Condition records.\nThe Output Types popup opens.\n18.Click BA00, for example, and then click Condition records.\nThe Key Combination popup opens.\n19.Maintain the required key combination for Output Detrmination::\n• SalesOrganisation/Customer:\n• Sales Organisation: 0001\n• Customer:\n20.Click Execute.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide for ERP Integration for Suppliers\nConfigure the SAP Integration Suite, Managed Gateway for Spend Management and\n32 PUBLIC SAP Business Network Add-On on SAP ERP",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "在SAP Process Integration中，配置集成场景的最后一步是什么？",
+    "ground_truth": "激活新创建的集成场景。",
+    "context": "Activating the Integration Scenario\nContext\nThe final configuration step in SAP Process Integration is to activate your newly created scenario.\nProcedure\nUsing the Change List tab on the main application screen, activate all the Change Lists containing the objects\ncreated and modified during the component setup.\nThis completes the configuration of the integration scenarios in SAP Process Integration.\nLinking Multiple SAP ERP Instances with SAP Business\nNetwork and SAP Ariba Procurement solutions\nIf your organization has more than one instance of SAP ERP, you can link them to a SAP Business Network and\nSAP Ariba Procurement solutions. This feature allows all the documents to be routed between a particular SAP ERP\ninstance, and SAP Business Network or SAP Ariba Procurement solutions.\nBuying organization or service provider accounts must be enabled for Multi-ERP implementation by SAP Business\nNetwork Support. The required configuration sections will not be available for accounts that have not been\nenabled.\nDocument Routing Mechanism for SAP Business Network [page 105]\nMulti-ERP Configuration [page 106]\nDocument Routing Mechanism for SAP Business Network",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "SAP Ariba支持将公共采购公告发布到哪个经批准的外部门户网站？",
+    "ground_truth": "Tenders Electronic Daily (TED) portal",
+    "context": "Support to Publish Public Procurement Notices\non an Approved External Portal\nBuyers can enter procurement details in the public procurement notices associated with a public sector event and\npublish the notices on the Tenders Electronic Daily (TED) portal. To publish public procurement notices to the TED\nportal, the buyers can integrate SAP Ariba Strategic Sourcing Suite and Tenders Electronic Daily (TED) using SAP\nIntegration Suite, managed gateway for spend management and SAP Business Network.\nPublic procurement notices contain information such as the bid items, eligibility criteria, location, time frame, and\nso on. You can use the following document types to monitor public procurement notices in the Transaction Tracker\nof SAP Integration Suite, managed gateway for spend management and SAP Business Network:\nNotice Document Type\nPriorInformationNotice\nPrior Information Notice\nContractNotice\nContract Notice\nContractAwardNotice\nContract Award Notice\nPINUtilities\nPeriodic Indicative Notice - Utilities\nCNUtilities\nContract Notice - Utilities\nCANUtilities\nContract Award Notice - Utilities\nCorrigendum Notice (Change Notice) Corrigendum",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba文档搜索结果中，用户可以通过什么方式下载所选交易的可用文件？",
+    "ground_truth": "使用搜索结果表中的 checkboxes（复选框）和 Download 按钮。",
+    "context": "c. Transaction Number\nd. Document Status\ne. Document Type\nf. Sender\ng. Receiver\n3. Click Search.\n4. Analyze the results. If needed, open the document details by selecting the Transaction Number.\nNext Steps\n• You can sort, as well as filter every column to adjust the result to your needs. Download the list of results with\nResults Export.\n• Download the available files for a transaction using the checkboxes and the Download button in the search\nresult table.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nHow to Guide for Suppliers\nTracking Documents with SAP Integration Suite, Managed Gateway for Spend\n60 PUBLIC Management and SAP Business Network",
+    "type": "integration",
+    "question_type": "simple"
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "question": "根据文档，实验性功能是否可用于生产环境？",
+    "ground_truth": "不可以。实验性功能不是为生产使用而设计的，您不得在实时运行环境中演示、测试、检查、评估或以其他方式使用实验性功能。",
+    "context": "you agree that (unless expressly stated otherwise in your agreements with SAP) you may not infer any product claims against SAP based on this information.\nVideos Hosted on External Platforms\nSome videos may point to third-party video hosting platforms. SAP cannot guarantee the future availability of videos stored on these platforms. Furthermore, any\nadvertisements or other content hosted on these platforms (for example, suggested videos or by navigating to other videos hosted on the same site), are not within the\ncontrol or responsibility of SAP.\nBeta and Other Experimental Features\nExperimental features are not part of the officially delivered scope that SAP guarantees for future releases. This means that experimental features may be changed by\nSAP at any time for any reason without notice. Experimental features are not for productive use. You may not demonstrate, test, examine, evaluate or otherwise use the\nexperimental features in a live operating environment or with data that has not been sufficiently backed up.",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba系统中，当用户希望优化搜索结果的可读性与实用性时，需要同时实现以下三个目标：（1）按特定业务字段（如“Commodity”或“Status”）对结果进行升序或降序排列；（2）仅显示与当前分析相关的关键列（例如隐藏“Owner ID”而保留“Description”和“Last Modified Date”）；（3）快速查阅某条搜索结果对应项目或文档的完整描述文本。请说明应如何通过Search页面的Table Options功能协同完成这三项操作，并指出其中哪一项操作还支持按“Name、Owner、Commodity、Status”等维度对结果进行逻辑分组？",
+    "ground_truth": "用户应在Search页面的Search Result表格右上角点击**Table Options图标**，依次执行以下操作以协同达成三项目标：",
+    "context": "Sorting and Selecting Search Result Columns\nYou can sort results by the different columns that show up in the search results, and you can choose which columns\nin the search results to hide or show.\nProcedure\n1. In the Search Result table on the Search page, click the Table Options icon in the upper right corner of the\ntable to display the Table Options menu.\n2. Choose View List to change the results display.\n3. To sort by column, click a column heading and toggle the sort order arrow that appears.\n4. To select which columns appear in the list use the Show/Hide toggles in the Table Options menu.\n Note\nYou can also use the Group by Column options to group together all the results with a particular name,\nowner, commodity, or status.\nViewing Project or Document Descriptions and Details in\nSearch Results\nYou can view the project or document descriptions and details in search results.\nProcedure\n• In the Search Result table on the Search page, click the Table Options icon and select View Details\ndisplay to view details, such as the Description text, about the projects or documents in the search results.\nSearching, Completing Tasks, and Other Common User Actions",
+    "type": "sourcing",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "Ariba中导出供应商搜索结果时，默认使用的分隔符和文件编码分别是什么？",
+    "ground_truth": "默认使用逗号（,）作为分隔符，UTF-8作为文件编码。",
+    "context": "• Preferred Supplier Manager\n• Mobile Supplier Manager\nContext\nWhen you export supplier search results, you can choose the character that separates values in the export file\nand the export file encoding. By default, exported files use a comma separator (,) and UTF-8 encoding. Regardless\nof the separator you choose, the export generates a file with a CSV (comma-separated value) extension. You can\nchange the extension when you save the file to your computer.\nThe exported file includes data for the suppliers in the current search results based on both the search terms and\nfilters you've used (including custom filters based on questionnaire answers) and contains the following columns:\n• Supplier Name\n• ERP Vendor ID\n• SM Vendor ID\nManaging Suppliers and Supplier Lifecycles\nCommon Supplier Information PUBLIC 67",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "文档中“Supplier”字段对应的页码是多少？",
+    "ground_truth": "59",
+    "context": "Renewal Interval. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .56\nResourced By. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57\nStart Date. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58\nSupplier. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .59\nTarget Savings %. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .60\nTerm Type. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .61\nTest Project. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62\nTotal Spend. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba Sourcing中，若采购方希望确保只有完成特定合规性问卷并经采购团队人工审核通过的供应商，才能进入某竞价事件并提交报价，应如何配置事件选项？请结合“Access gates（prerequisite questions）”的功能特性说明其是否满足该需求，以及关键配置要点。",
+    "ground_truth": "应启用并正确配置“Access gates（prerequisite questions）”选项。该功能完全支持所述场景：它允许采购方设置强制性的前置问题（如GDPR承诺、反贿赂声明、资质文件上传等），并可选择两种控制模式——",
+    "context": "Option Description Additional Information\nAccess gates (prerequisite Access gates use prerequisite questions that prevent participants Prerequisite Questions\nquestions) [page 85]\nfrom accessing the event or submitting bids until they submit re-\nsponses to the prerequisite questions. You can also withhold access\nuntil a participant's responses to the prerequisite questions are ap-\nproved by a team member.\nEvent Management Guide\n22 PUBLIC Event Options",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "Ariba文档中声明的版权声明年份是哪一年？",
+    "ground_truth": "2025",
+    "context": "www.ariba.com\nCopyright © 2025 Ariba, Inc. All rights reserved.\nThis documentation, as well as the Ariba solutions, software and/or\nservices described in it, contain proprietary information. They are\nprovided under a license or other agreement containing restrictions on\nuse and disclosure and are also protected by copyright, patent and/or\nother intellectual property laws. Except as permitted by such agreement,\nno part of the document may be reproduced or transmitted in any form\nby any means, electronic, mechanical or otherwise, without the prior\nwritten permission of Ariba, Inc.\nAriba, Inc. assumes no responsibility or liability for any errors or\ninaccuracies that may appear in the documentation. The information\ncontained in the documentation is subject to change without notice.\nAriba and Ariba products and services mentioned herein as well as their\nrespective logos are trademarks or registered trademarks of Ariba, Inc. in\nthe United States and other countries. Please see http://www.ariba.com/\nlegal/trademarks for additional trademark information and notices.\nAriba Sourcing solutions (On Demand and software) are protected",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "Ariba系统中每个新添加的评分员（grader）的默认权重是多少？",
+    "ground_truth": "100",
+    "context": "Adjustment of Graders’ Weights\nUsers you add as team graders or external graders are added to the Grader’s Weight section on the Team tab.\nThe Blind Grading Enabled flag is only visible if blind grading is enabled and external graders who are not team\nmembers have been added to the grading task. Team members added to the Team Grader group or through the\nEdit External Grader task always see participant information.\nAdjust each grader’s weight if required in the Weight box in the participant’s row. For example, you might want to\ngive an experienced grader a higher weight than a junior grader, or if you use blind grading, those graders might\nreceive a higher weight than other external or team graders in the final score.\nThe default weight of each grader is 100. A weight lower than 100 will reduce the grader’s impact, a weight higher\nthan 100 will increase the grader’s impact. For example, a weight of 200 doubles the impact of the grader’s score in\nthe final scoring result.\nThe final grade is calculated as a weighted average:\n(w1*g1 + w2*g2 + ... + wn*gn) / (w1+w2+ ... +wn),\nWhere w1, w2, etc. and g1, g2, etc. are the assigned weights and the grader’s grades, respectively.",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "在Ariba的模块化问卷（modular questionnaire）项目中，当一个内部表单（internal form）被分配给一个项目组（project group）作为To Do任务的所有者时，该表单的编辑权限、任务完成机制以及项目整体状态变更（如Approved或Denied）之间存在怎样的联动关系？请结合任务所有权分配规则、状态流转条件（特别是Approved和Denied状态的触发逻辑）以及用户编辑权限限制，综合说明一名项目组成员成功提交该表单后对任务状态、表单可编辑性及整个问卷项目生命周期的影响。",
+    "ground_truth": "在Ariba模块化问卷项目中，当内部表单的To Do任务所有者被指定为项目组时，该组全体成员均拥有潜在编辑权限；但任务所有权具有“先占式锁定”机制——即首位提交表单并完成任务的成员，将正式成为该已完成任务的唯一所有者。此时，该提交行为本身不会直接改变项目整体状态，但会推动项目向下一审批阶段演进。关键约束在于：一旦项目整体状态变为Approved，则其核心要素（包括项目的关键问卷）将禁止更新，且所有关联的内部表单（即使尚未由其他组员编辑）也将同步关闭编辑权限，无法再修改——这体现了项目级状态对所有下级表单的强管控。反之，若任一表单或问卷在审批链中被任一审批人拒绝（Deny），项目立即进入Denied状态，此时所有表单与问卷（无论是否已提交、是否属同一项目组）均永久关闭，禁止任何进一步更新。因此，项目组成员的提交行为虽能推进任务完成，但其实际生效范围和后续可编辑性完全受制于项目全局状态；Approved状态冻结全部编辑能力，Denied状态则彻底终止项目生命周期，二者均覆盖并优先于个体或小组层面的操作权限。",
+    "context": "again.\nIf the project's key questionnaire doesn't allow updates, inter-\nnal forms with To Do tasks can't be edited again either once the\nproject reaches Approved status.\nIf an approver denies any form or questionnaire in the modular questionnaire project, the project moves to Denied\nstatus and all of its forms and questionnaires close to further updates.\nIf the owner of a To Do task on an internal form in a modular questionnaire project is a project group, all members\nof that project group can potentially edit the form. The first project group member to submit the form and\ncomplete the task then becomes the owner of the completed task.\nProcedure\n1. Locate the supplier on the Supplier Management dashboard.\n2. Choose their name to open their profile.\n3. Perform one of the following actions:\n• In the supplier profile summary, choose the Questionnaires panel.\n• In the classic supplier 360° profile, choose Questionnaires in the left-hand navigation bar.\n4. Perform one of the following actions:\n• If the form isn't associated with an active To Do task, or if it's but you aren't the task owner: On the",
+    "type": "sourcing",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "在Ariba中，定价条件功能是否支持服务行项目（service line items）？",
+    "ground_truth": "不支持。定价条件（如有效期和阶梯价）仅支持物料项目（material items），不支持服务行项目。",
+    "context": "Pricing Condition Mass Edit\nYou can mass edit pricing condition information on the Content page. A new Pricing Conditions option is available\nin the Edit pull-down menu on the Content page. Buyers can select multiple items and choose Edit Pricing\nConditions to edit the pricing condition information for those items at the same time.\nA new Edit Pricing Conditions popup screen appears after buyers choose Edit Pricing Conditions . The Edit\nPricing Conditions screen displays all the pricing condition bidding rules for the event.\nRestrictions for Pricing Conditions\n• Validity periods are available in contracts and RFPs, but they are not available in auctions.\n• Pricing conditions such as validity periods and scales are supported only for material items and does not\nsupport service line items.\n• You cannot configure the default Quantity item term that appears in the sourcing event template to use pricing\nconditions.\n• PIRs do not support custom item terms with pricing conditions.\n• The Pricing condition functionality is not available for Out-of-the-Box (OOTB) terms, and the Add Term to\nPricing Conditions rule does not display for these terms.",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "与供应商绩效管理评审配置相关的文档名称是什么？",
+    "ground_truth": "Configuring Supplier Performance Management Reviews",
+    "context": "Configuring Supplier Performance Management Reviews\nRunning Supplier Performance Management Reviews\nManaging Project Email Notifications\nProject Template Guide\nManaging Projects, Teams, Documents, and Tasks\nSupplier Management Setup and Administration Guide\n12 PUBLIC Supplier Management Setup and Administration Guide",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "哪种类型的任务是任务所有者可以撤回的？",
+    "ground_truth": "审批任务（Approval tasks）是唯一一种任务所有者可以撤回的任务。",
+    "context": "Management (classic architecture), which use supplier workspaces to manage suppliers.)\n• A task is overdue\n• Task - Overdue notification sent when tasks are overdue. The Notification Profile determines the\nrecipients. This is a scheduled batch notification.\n• A task is withdrawn\nApproval tasks are the only type of tasks that task owners can withdraw.\n• Task - Sent to the approvers if a task is withdrawn.\n• A user is added to or removed from an approval flow\n• Task - Sent to the task owner when an approver is added to an existing approval flow.\n• Task - Sent to the offline email approvers when they are added to an approval flow.\n• Task - Sent to the task owner when an approver is removed from an approval flow.\n• Comments are added to a task\nSAP Ariba solutions send the following notifications only if the option Notifications on comment is set to Yes\nin the Advanced Task Details for a task. For more information, see Configuring Advanced Task Details.\n• Task - Sent to the task owner when a task participant adds a comment to the task.\nManaging Project Email Notifications\nNotifications Related to Tasks and Phases PUBLIC 9",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "当“Prevent editing questions and viewing responses”规则设为“Yes”时，将“only authorized group members can edit restricted questions and view their responses”规则设为“Yes”后，未授权用户在“Questions, requirements, and attachments”面板中无法使用哪些按钮？",
+    "ground_truth": "Move、Copy、Delete 和 Edit questions 按钮被禁用。",
+    "context": "When set to Yes, only authorized group members can edit restricted questions and view their responses. This rule\nappears only when the Prevent editing questions and viewing responses rule is set to Yes. By default, this rule is\nset to No, and the question is not restricted to any user group.\nWhen you set the rule to Yes, then in the Questions, requirements, and attachments panel in guided sourcing\nevents in draft state, the following user interface changes occur for unauthorized users:\n• The Edit question option is unavailable.\n• The Move, Copy, Delete, and Edit questions buttons are disabled.\nEvent Management Guide\nCreating Event Content PUBLIC 157",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "如果某采购团队在Ariba中对一个已发布的Sourcing Project Template进行了多次编辑，并在最新版本中误删了关键的合规性条款，但该模板仍处于“已发布”状态且被多个活跃项目引用，此时应优先采取哪项操作来快速恢复原始合规条款，同时确保不影响正在进行的采购流程？为什么其他类似操作（如直接编辑、删除或重新分配Display Rank）无法达成同等效果？",
+    "ground_truth": "应优先执行“Reverting a Project Template”（还原项目模板）操作。根据文档结构，该功能在第33页单独列出，表明其是专为应对此类场景设计的关键恢复机制——它能将模板回退至最近一次成功发布的版本（即包含完整合规条款的已验证状态），而无需停用模板或中断当前引用它的活跃项目。",
+    "context": "Project Template Publishing and Management. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .23\nProject Template Management. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23\nPublishing Project Templates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .24\nEditing a Project Template. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .25\nDeleting Predefined Terms from Sourcing Project Template. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .28\nDeleting Predefined Terms from a Sourcing Request Template. . . . . . . . . . . . . . . . . . . . . . . . . . . . .30\nProject Template Overview Tab. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31\nAssigning Display Rank to Project Templates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .32\nReverting a Project Template. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .33",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "在SAP Ariba系统中，“Setting Up SAP Ariba Supplier Risk”这一配置任务属于哪个更广泛的解决方案模块，并且为什么将其归类为“PUBLIC”文档（而非INTERNAL或CONFIDENTIAL）？请结合Ariba的部署模式、用户角色权限模型及供应商风险管理的业务特性进行推理说明。",
+    "ground_truth": "该配置任务属于SAP Ariba的**Supplier Lifecycle and Performance Management（供应商生命周期与绩效管理）解决方案模块**，具体是其子模块Supplier Risk Management（SRM）。将其标记为“PUBLIC”文档，主要基于以下三方面推理：",
+    "context": "Setting Up SAP Ariba Supplier Risk\n12 PUBLIC Introduction to SAP Ariba Supplier Risk Setup",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  }
+]

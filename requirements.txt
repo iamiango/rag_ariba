@@ -1,0 +1,33 @@
+# Core RAG dependencies
+langchain==0.3.27
+langchain-community==0.3.31
+chromadb==1.5.0
+sentence-transformers==5.1.2
+transformers==4.57.6
+unstructured==0.18.3
+dashscope
+FlagEmbedding>=1.2.0
+
+# Query preprocessing dependencies
+language-tool-python>=2.7.1
+jieba>=0.42.1
+
+# BM25 and tokenization
+rank-bm25>=0.2.2
+nltk>=3.8.1
+
+# Document processing
+pypdf
+python-docx
+python-pptx
+openpyxl
+markdown
+lxml
+beautifulsoup4
+
+# Utilities
+numpy
+torch
+
+# Web UI
+streamlit>=1.30.0

@@ -1,0 +1,114 @@
+[
+  {
+    "question": "In SAP Ariba Product Sourcing, why must the item status transition sequentially through “Ready → Processing → Success” — rather than directly from “Ready” to “Success” — when the system copies contract pricing from the Placeholder Plant to the Actual Plants and creates Purchase Information Records (PIRs)? What critical validation and processing logic executed in the Ariba backend does this status transition mechanism reflect?",
+    "ground_truth": "This status transition (Ready → Processing → Success) is not merely a superficial UI display change; rather, it strictly corresponds to the critical lifecycle phases of the backend asynchronous batch processing, reflecting Ariba’s enforced logic for data consistency, transactional integrity, and business compliance. The specific reasoning is as follows:",
+    "context": "10.The status of the items changes from Ready to Processing, and then to Success when PIRs are created.\nRelated Information\nCopying the Contracted Price from the Placeholder Plant to Actual Plants and Create PIRs [page 186]\nSAP Ariba Product Sourcing Guide\nBill of Materials and Materials Management PUBLIC 173",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "Through which two primary methods does SAP Ariba allow users to modify public master data?",
+    "ground_truth": "Use Workspaces and Tasks (in Ariba Administration) and edit the CSV file, then run the Data Import task.",
+    "context": "Common Master Data for SAP Ariba Strategic\nSourcing Solutions Management\nCommon master data refers to information used by all SAP Ariba strategic sourcing solutions, such as users,\ngroups, suppliers, and commodity codes. After the initial set of common master data is loaded for you by SAP\nAriba, you can modify (update, delete and add) the common master data yourself.\nYou can modify common master data using workspaces and tasks in the Ariba Administrator You can also modify\ncommon master data by editing comma-separated values (CSV) files and running data import tasks from the Ariba\nAdministrator.\nWe recommend using a data management system to track all your data changes. Before deleting data, you should\nexport the data to CSV files by running data export tasks. You can then use these CSV files to reimport your data, if\nnecessary. Regularly exporting data can also help you keep track of your current configuration.\nManage Data Using Workspaces and Tasks in the Administration Area\nThe administration area includes workspaces and tasks that let you maintain some of your data. You typically use",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "What is the value of the Status element in the DocumentStatusChangeNotification request sent by SAP Ariba when an event is closed?",
+    "ground_truth": "close",
+    "context": "multiple participants or multiple items).\n• The event manager checks the banner (top) area of the contents page to view the status of the Retrieve\ndocument URLs operation. The event manager also checks the status (Info field) displayed for each\ndocument URL in the event Content or Summary area.\n• The event manager publishes the event. SAP Ariba sends a DocumentURLOutBound request. The request\nincludes a Status element with the value RFXDocument:Publish.\nIf an error occurs when sending the DocumentURLOutBound request or processing the response, SAP Ariba\ndisplays a warning but allows the event to be published.\nParticipants viewing event contents can click the Document URL to view documents hosted on the buyer's\nserver.\n• The preview time for the event elapses and the event is open for participants to send responses.\nSAP Ariba sends a DocumentStatusChangeNotification request that includes a Status element with the value\nRFXDocument:MoveToOpen.\n• When the event closes, SAP Ariba sends a DocumentStatusChangeNotification request that includes a Status\nelement with the value RFXDocument:close. The buyer can choose to disable the document URLs.",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "SAP Ariba recommends the maximum number of items that can be added to a single questionnaire to avoid gradual performance degradation.",
+    "ground_truth": "500",
+    "context": "have no effect in issue management projects. Note that the approval task owner can resubmit a denied\napproval task to restart the approval flow.\n• As with the engagement request and engagement-level risk assessments, you can enable ad hoc approval. You\ncan also enable ad hoc review. With issue management projects, if you specify an empty approval or review\nflow for the task, the project owner (rather than a member of the Supplier Risk Engagement Governance\nAnalyst group) can add approvers or reviewers. An approval or review flow is empty when there are no nodes\nbetween the Submitted and Approved or Reviewed boxes in the flow editor.\n• The base language of the issue management project template's default survey document is English, and\ntherefore default content in that survey document is English. You can add translations [page 382] to that\ndefault content for users in non-English locales.\n• SAP Ariba recommends that you add no more than 500 pieces of content to an individual questionnaire.\nAdding more than 500 pieces of content can cause performance to degrade progressively as you add more\ncontent.\nRelated Information\nAbout the Issue Management Project Template [page 249]",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "Does the Ariba documentation mention whether a questionnaire can be configured with an expiration date? If so, what related information is included?",
+    "ground_truth": "Yes, surveys can be configured with an expiration date; the relevant information includes “whether the survey can expire and, if so, its expiration schedule.”",
+    "context": "• Whether the questionnaire is internal or external and, for internal questionnaires, its recipients.\n• The content of the questionnaire.\n• Whether or not the questionnaire can expire and, if so, its expiration schedule.\n• Whether or not the questionnaire has its own approval flow and if so, who is responsible for approving it.\n• Whether or not updates to the questionnaire also require approvals.\nRelated Information\nRequesting a New Engagement and Starting a Control-Based Risk Assessment [page 152]\nApproving or Denying a Request for a Control-Based Engagement Risk Assessment [page 179]\nSending Assessment Questionnaires for a Control-Based Engagement Risk Assessment Project (Simple Workflow)\n[page 197]\nSetting Up Control Review Workflow\nReviewing a Pending Control for Effectiveness Using the Control Review Page [page 249]\nReviewing a Pending Control for Effectiveness Using the Control Details Page (Two Levels) [page 236]\nSkipping an Assessment Response [page 243]\nSkipping a Control Review [page 246]\nApproving or Denying a Control-Based Engagement Risk Assessment Project [page 224]\nControl-Based Engagement Risk Assessment Status Flow [page 288]",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "In Ariba, when an “engagement risk assessment project” is in the advanced archiving workflow, which three distinct notification statuses may be received by members of the Project Owner group? For each notification status, specify the triggering condition, the notification subject line format (i.e., the header identifier for email/system notifications), and the corresponding action meaning (i.e., whether it is for awareness only, requires user action, or indicates workflow termination/rejection).",
+    "ground_truth": "Under the Advanced Archiving Workflow, project owner group members may receive notifications for the following three statuses:",
+    "context": "Notification Sent to Informs Recipients That...\nAction needed: you have been assigned An internal user A To Do task on a questionnaire, or a\nto <task name> for <engagement control review task, has been assigned to\nproject name> them individually\nThe members of a project group A To Do task on a questionnaire or a con-\nFor your information: you can now take\ntrol review task has been reassigned from\naction on <task name> for <engagement\nan individual project group member back\nproject name>\nto the entire group\nMembers of the Project Owner group An engagement risk assessment project\nArchived: <engagement project name>\nhas been archived. This notification is\nused in both simple and advanced archiv-\ning workflows.\nMembers of the Project Owner group Approvers have approved a request to\nAction needed: archive <engagement\narchive an engagement risk assessment\nproject name>\nproject in the advanced archiving work-\nflow and it is ready to archive\nMembers of the Project Owner group Approvers have denied a request to ar-\nDenied: request to archive <engage-\nchive an engagement risk assessment\nment project name>\nproject in the advanced archiving work-\nflow",
+    "type": "sourcing",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What user group or team member role is required to create or edit a template?",
+    "ground_truth": "You must be a member of the global Template Creator group or a member of the Templates Creator team for the template project.",
+    "context": "Prerequisites\nYou must be a member of the global Template Creator group or the template project’s Templates Creator team to\ncreate or edit templates.\nEvent Management Guide\nCreating Event Content PUBLIC 137",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "In an Ariba Guided Sourcing English Auction event, which three prerequisite conditions must all be satisfied to enable “Blind Grading on Participant Responses”? Please explain each condition and its triggering relationship, referencing the dependency and visibility logic within the event rule configuration.",
+    "ground_truth": "To enable “Enable blind grading on participant responses,” the following three prerequisite conditions must be met simultaneously:",
+    "context": "on participant responses is\nYes)\nEnable blind grading on No Delegated\nparticipant responses (visible\nonly when Enable scoring on\nparticipant responses is Yes)\nMust owner submit No Delegated\nconsensus grades before\nawarding items? (visible only\nwhen Enable scoring on\nparticipant responses is Yes\nand the Intelligent Configu-\nration Manager parameter\nEnable grading-based item\naward parameter is Yes)\nSetting Up Guided Sourcing\n56 PUBLIC Guided Sourcing English Auction Event Rules",
+    "type": "sourcing",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What is the published status of the assembled contract document in the Enhanced Contract Authoring section?",
+    "ground_truth": "PUBLIC",
+    "context": "table. For example, item 1 is listed as \"1. Item\", item 2 is listed as \"2. Item\", and so forth.\nEnhanced Contract Authoring\nAssembled Contract Documents PUBLIC 43",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "What is the maximum length of a bank account number in Afghanistan (AF)?",
+    "ground_truth": "15",
+    "context": "account ID for each bank.\nTable 33:\nAccou\nntHol Accou Accou\nAccou Accou\nderNa ntHol ntHol Accou\nntNum Accou BankK ntNum BankK Accou\nmeChe derNa derNa ntNum\nCount berCh ntNum eyChe BankK BankK berMa eyMan ntNum BankK\nckRul meReg meSiz berSi\nryCod eckRu berRe ckRul eyReg eySiz ndato dator berVi eyVis\ne ex e ze\ne le gex e ex e ry y sible ible\nAD 5 60 5 15 N N Y Y\nAE 5 60 1 11 N N Y Y\nAF 5 60 5 15 N N Y Y\nAG 5 60 1 11 N N Y Y\nAI 5 60 1 12 N N Y Y\nAL 5 60 5 15 N N Y Y\nAM 5 60 1 11 N N Y Y\nAO 5 60 1 11 N N Y Y\nSupplier Management Setup and Administration Guide\n660 PUBLIC Default Data for Bank Account, Tax, and Address Configurations",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "Why does the Carbon Footprint Questionnaire in SAP Ariba Sourcing use dynamic answer types instead of traditional fixed options, and how does this design simultaneously support compliance with the PACT v2 standard and the business objective of sustainable development footprint management?",
+    "ground_truth": "The Carbon Footprint Questionnaire employs dynamic answer types (e.g., configurable numeric inputs, hierarchical industry classification selections, multidimensional activity data entry) to precisely align with the core Scope 3 emissions data collection requirements defined in the World Business Council for Sustainable Development (WBCSD) PACT v2 framework. PACT v2 emphasizes “activity-based data” and “value chain context awareness”—that is, differentiated baseline activity data (e.g., ton-kilometers transported, kWh energy consumed, kg raw materials used) must be collected across industries and value chain stages (e.g., raw material procurement, logistics, outsourced manufacturing), then combined with corresponding emission factors to calculate carbon emissions. Traditional static-option questionnaires cannot accommodate heterogeneous data requirements spanning industries and processes, leading easily to information distortion or forced categorization bias—violating PACT v2’s principle of “data granularity matching actual operations.” In contrast, dynamic answer types enable buyers to flexibly configure question logic by category or supplier tier within Ariba Sourcing (e.g., enabling a “transport mode + distance + payload” triplet input for logistics service providers; enabling structured fields for “energy type consumed in production + annual usage volume + process stage” for Tier-1 manufacturers). This ensures collected data complies with PACT v2’s definition of activity data as “verifiable, traceable, and contextually complete,” while also enabling seamless parsing and mapping by SAP Sustainability Footprint Management into its embedded GHG Protocol classification model and regionalized emission factor library—thereby supporting high-integrity Scope 3 accounting, benchmarking, and decarbonization pathway analysis. This capability constitutes the critical prerequisite for scientific decision-making and compliant disclosure in sustainability footprint management.",
+    "context": "SAP Ariba Sourcing Integration with SAP\nSustainability Footprint Management\nThe integration between SAP Ariba Sourcing and SAP Sustainability Footprint Management enables you to collect\ncarbon footprint data from supplier responses in SAP Ariba Sourcing and send that data to SAP Sustainability\nFootprint Management.\nCarbon footprint data is collected from suppliers using the Carbon Footprint Questionnaire. When suppliers\nare awarded, their responses to the Carbon Footprint Questionnaire are sent from SAP Ariba Sourcing to SAP\nSustainability Footprint Management.\nWorld Business Council for Sustainable Development (WBCSD), has established the Pathfinder Framework (PACT)\nas a global standard of calculating and exchanging scope 3 emission data across the value chain. The Carbon\nFootprint Questionnaire is designed to provide a more versatile and robust way of gathering data in the PACT V.2\nstandard and complies with sustainability footprint management. Unlike traditional fixed-choice answers, dynamic\nanswer types allow for a wider range of responses. Suppliers can choose from predefined, industry-standard",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "In an Ariba Guided Sourcing event, how should event rules be configured if the buyer wishes to strictly restrict suppliers to adding only supplier-added items and lots exclusively within Alternative Bids—and prohibit them from adding any non-predefined items or lots in the Primary Bid? This configuration must comply with system logic constraints; additionally, the synergistic effect of the relevant rules and the corresponding documentation references must be specified.",
+    "ground_truth": "To achieve this business objective, **two event rules must be enabled simultaneously**:",
+    "context": "Allowing Suppliers to Add Items and Lots to Alternative\nBids\nTo collect content that suppliers might want to provide in addition to those defined in a guided sourcing event, you\ncan enable the Allow suppliers to add items event rule to allow suppliers to add items and lots to both primary and\nalternative bids.\nIf you only want suppliers to add items and lots to alternative bids, you can enable both Allow suppliers to add\nitems and Allow supplier-added items only in alternative bids event rules.\nFor more information about supplier-added items, refer to Supplier-Added Items in Guided Sourcing Events [page\n486].\nParent topic: Alternative Bidding in Guided Sourcing Events [page 448]\nRelated Information\nAlternative Bidding Rules for Guided Sourcing Events [page 449]\nMonitoring Alternative Bids in Guided Sourcing [page 451]\nIncluding Alternative Bids in Bid Ranking for Guided Sourcing Events [page 452]\nSupporting Multi-Currency for Alternative Bids in Guided Sourcing [page 453]\nAwarding Alternative Bids in Guided Sourcing [page 454]\nHiding Alternative Bids in Guided Sourcing [page 455]\nCreating Guided Sourcing Events with Alternative Bidding [page 456]",
+    "type": "sourcing",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What is the maximum number of characters allowed in the Title field of the Ariba Contract Workspace?",
+    "ground_truth": "254",
+    "context": "Title\nThe Title field specifies the title of the contract workspace.\nThe Title can contain up to 254 characters and cannot contain any of the following special characters:\n\\ / : ? “ < > | # + % &\n Note\nIn addition, do not end the title with a period (.).\nContractId\nThe ContractId specifies a contract identification number. This number is different from the InternalID\ngenerated for each contract workspace by SAP Ariba Contracts, and can be any string you choose provided it\nis unique. The ContractId is used when a company specific naming or identification scheme is needed.\nIf you specified a value other than ContractId as the WorkspaceLookupKey in the\nImportProjectParameters.csv file, you can leave this field blank and the system generates a contract ID\nfor you. However, if you are using ContractId as the WorkspaceLookupKey, you must specify a value in this field.\n Note\nEach contract must have a unique ContractId. Different versions of the same contract can either share a\nContractId, or can all be unique. SAP Ariba recommends that you assign a unique ContractId to each",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "What is the maximum hierarchical level supported by templates in SAP Ariba?",
+    "ground_truth": "4",
+    "context": "• A form consists of layouts, and layouts contain questions (multiple choice questions) or input (text) fields\ndepending on whether you're creating a questionnaire or a scorecard.\n• You can place additional layouts within a layout. Placing layouts within an existing layout is called nesting.\nNesting is useful in creating a hierarchy for your template. Hierarchy is a grouping or classification of questions\nor text fields in your template based on their similarity. For example, you can have a main layout on a topic\ncalled \"Quality\". You can then nest related sub-layouts related to quality (say product quality and service\nquality) under this main layout. Such a hierarchical design lends structure and readability to your template. A\nhierarchy level of 4 is supported for creating templates. This means that you can nest layouts up to 3 levels\nonly, and the last level must be an input text field or a multiple choice question.\n• You drag a widget from the widget panel into a layout.\n• Drag another layout into the form. You can either choose to nest the layout in the existing layout or place it\nseparately above or below the existing layout.",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "Who can export the Clause Library as a ZIP file?",
+    "ground_truth": "Clause Library Project Owner，或属于Clause Library团队且是Contract Administrator组成员的用户。",
+    "context": "You can also enter project title words or keywords to narrow the search results.\n4. Click Search.\nAbout Exporting and Importing the Clause Library\nIf you are the Clause Library Project Owner, or if you are on the Clause Library team and a member of the Contract\nAdministrator group, you can export the Clause Library to a ZIP file. Clause Library export and import allows you to\nuse a Clause Library that has been developed in another environment without having to manually re-create it. For\nexample, you can develop your Clause Library in a test environment, export it, and then import it into a production\nContract Authoring Guide\nClause Library PUBLIC 59",
+    "type": "sourcing",
+    "question_type": "simple"
+  },
+  {
+    "question": "In the SAP Ariba Risk Management module, if a customer wishes to quantitatively assess the overall risk posture at the supplier level based on risk domains and support continuous monitoring of its trend over time, which two configuration capabilities should be enabled? Please explain the respective functions of each capability and their synergistic relationship, referencing the documentation.",
+    "ground_truth": "The following two features must be enabled:",
+    "context": "Allow no-effectiveness option for control review. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .472\nAllowable number of suppliers for bulk creation of engagement requests. . . . . . . . . . . . . . . . . .473\nAllow users to create general and engagement-related findings . . . . . . . . . . . . . . . . . . . . . . . . .474\nAllow user permissions to specific administrator actions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .475\nAllow using control effectiveness levels to evaluate residual risk by risk domain. . . . . . . . . . . . . 475\nAllow using issues to evaluate residual risk by risk domain. . . . . . . . . . . . . . . . . . . . . . . . . . . . .476\nAutomatically skip sending assessments . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .477\nCalculate engagement level residual risk by risk domain. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .477\nCalculate inherent risk for engagements by risk domain . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 479\nCalculate supplier level inherent and residual risk by risk domain. . . . . . . . . . . . . . . . . . . . . . . 480",
+    "type": "sourcing",
+    "question_type": "reasoning"
+  }
+]

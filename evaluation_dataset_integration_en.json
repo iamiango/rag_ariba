@@ -1,0 +1,107 @@
+[
+  {
+    "question": "在SAP Business Network for Supply Chain中，买家可以为寄售物料（consignment items）创建哪两类采购单据类型（purchasing document type）的LP和LPA？",
+    "ground_truth": "The LP and LPA purchase document types can be used for scheduling agreements for consignment material categories.",
+    "context": "pays for it, the ownership of the consignment goods is transferred from the supplier to the buyer. This transfer\nof ownership or movement of components to the buyer is called consignment movement. SAP Business Network\nfor Supply Chain allows buyers to create consignment line items on purchase orders (category K) and self-billing\ninvoices for consignment movements, and suppliers to view and track the movement of the consignment materials,\ntransfer ownership of stock, and create invoices.\nBuyers can send the LP and LPA purchasing document type for the consignment item category in scheduling\nagreements. To send scheduling agreement releases, buyers must enable the rule, Allow scheduling agreement\nrelease collaboration in their SAP Business Network buyer account.\nReturns in Purchase Orders\nSAP Integration Suite, managed gateway for spend management and SAP Business Network supports integration\nof returns in purchase orders for SAP ERP buyers and suppliers using direct materials. Buyers and suppliers must\nbe integrated with SAP Business Network for Supply Chain to use this functionality.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "Invoice Status Update（ISU）的Header TextID值在TTXID表中对应的代码是什么？",
+    "ground_truth": "F01",
+    "context": "TTXID table.\nInvoice Sta- StatusUpdateRequest Header TextID The header level attribute for invoice sta- F01\ntus Update ISU tus update configured on your ERP sys-\ntem. The value is available in the TTXID\ntable.\nLine TextID ISU The line level attribute for invoice status F01\nupdate configured on your ERP system.\nThe value is available in the TTXID table.\nDefault Lang To maintain the default language when en\nERP or SAP Business Network fail to send\nlanguage details both for inbound and\noutbound messages.\nService Sheet StatusUpdateRequest Header TextID The header level attribute for service F01\nResponse SES sheet response configured on your ERP\nsystem. The value is available in the\nTTXID table.\nLine TextID SES The line level attribute for service sheet F01\nresponse configured on your ERP sys-\ntem. The value is available in the TTXID\ntable.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\nCross References Setup on SAP Integration Suite, Managed Gateway for Spend\n552 PUBLIC Management and SAP Business Network",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "Which method should be selected for event delivery when configuring event delivery?",
+    "ground_truth": "Using tRFC",
+    "context": "BOR ARBCIG2012 CHANGED ARBCIG_BUY Method CL_ARBCIG_EVENT_O BI_EV ON_EV\nObject ER_CLOSE_P BD_P2P_POCLO ENT_H ENT\nType O ANDLE\nR_STA\nTIC\n3. Choose Using tRFC for Event delivery.\n4. Check the Linkage Activated checkbox for all the entries.\n5. Click Save.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\nConfiguring Supported Transactions PUBLIC 459",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "In the Ariba Mapping Tool, for a procurement business scenario requiring the mapping logic “if the source field value is ‘Urgent’, map to ‘HighPriority’; otherwise, map to ‘NormalPriority’”, can this be implemented directly using an IF conditional statement? If not, how should this logic be implemented in compliance with Ariba documentation’s constraints on condition groups?",
+    "ground_truth": "• The IF conditions.” 即Ariba Mapping Tool原生不支持IF/ELSE等传统编程式条件分支语法。但文档同时指出替代方案：“you can use the source condition, and target condition along with Choose-When functionalities”。这意味着必须借助**Choose-When**（即多分支选择结构）机制来模拟条件逻辑。",
+    "context": "default.\n• Buyers can group only a minimum of two and a maximum of ten conditions using OR, AND, and NOT operators.\nConditions used to create condition groups cannot be removed or reordered.\nThe mapping tool does not support the following:\n• The IF conditions. However, you can use the source condition, and target condition along with Choose-When\nfunctionalities. For more details, see Adding Conditions to Custom Mappings in SAP Integration Suite,\nManaged Gateway for Spend Management and SAP Business Network Configuration Guide.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nOverview Guide\n374 PUBLIC Working with the Mapping Tool",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "In SAP Ariba integration scenarios, if a customer requires custom logic extension for the “ERP-Initiated Invoice” outbound transaction—for example, automatically appending specific business identifiers or validating supplier compliance status prior to invoice transmission to SAP Business Network—which technical mechanism should be selected to implement this requirement? Why is it not feasible to directly enhance standard ABAP reports or modify core transport function modules (e.g., RFC or IDoc handlers) to fulfill this requirement?",
+    "ground_truth": "This should be implemented by implementing the specified BAdI (Business Add-In). According to the documentation, “ERP-Initiated Invoice” is explicitly listed in the supported outbound SAP Business Network transactions, and the central context of the entire document is guiding users on “Implementing BAdI for Supported Outbound SAP Business Network Transactions,” indicating that SAP has pre-provided official, business-event-driven, pluggable enhancement points (i.e., BAdIs) for such standard outbound integration transactions, rather than exposing the underlying transport layer (e.g., RFC/IDoc) or UI-layer logic for arbitrary modification.",
+    "context": "Implementing BAdI for Supported Outbound SAP Business Network\nTransactions\nContext\nImplement BAdIs for the following outbound SAP Business Network transactions:\n• Purchase Order\n• Receipt Request\n• Service Sheet Response\n• Invoice Status Update\n• Payment Proposal\n• Payment Remittance\n• ERP-Initiated Invoice\nProcedure\n1. Run the transaction code SPRO.\nThe Customizing: Execute Project page appears.\n2. Click SAP Reference IMG.\nThe Display IMG screen appears.\n3. Navigate to the path mentioned in the SPRO Navigation column in the following table.\n4. Implement the BAdI. For more information about implementing a BAdI, see How to Implement a BAdI.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\n626 PUBLIC Using Test Central for Buyer Regression Testing",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "What value should be entered in the “Type” field in the EARMARKED_EXPORT prefilter?",
+    "ground_truth": "S",
+    "context": "Filter name Description Supported values\nEARMARKED_EXPORT Applicable for SAP Ariba Procurement • Variable Name: EARMARKED_EX-\nPORT\nsolutions. This is an optional field.\n• Field Name: Field name that desig-\nThis pre-filter allows you to export the nates the earmarked funds in the\nearmarked funds from the SAP ERP or table KBLK.\nSAP S/4HANA to SAP Ariba Procure- • Type: Enter S as the selection cat-\nment solutions. egory.\n• Number: 0000\nConfigure a selection criteria to filter\n• Variant: The unique variant name\nthe earmarked funds to include in each\nfor the SAP Ariba Procurement\nmaster data export batch task for the\nsolutions in SAP ERP or SAP S/\nfunds.\n4HANA. For example, VREALM_2.\n• Partition: The unique site name for\nthe SAP Ariba Procurement solu-\ntions in SAP ERP or SAP S/4HANA.\nFor example, PREALM_2.\n• Sign: Enter I.\n• Option: Enter EQ.\n• Low: Enter the filter value for the\ncriterion you set for field.\n Note\nIf you select date field, you\nmust provide date value in the\nformat YYYYMMDD.\n• High: Blank if the option is not BT.\nFMAREA_EXPORT Applicable for SAP Ariba Procurement • Variable Name: FMAREA_EXPORT\nsolutions. This is an optional field. • Field Name: Field name that des-",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "What is the version number of this document?",
+    "ground_truth": "2511_SP 0024 – 2025-11",
+    "context": "PUBLIC\nDocument Version: 2511_SP 0024 – 2025-11\nSAP Integration Suite, Managed Gateway for\nSpend Management and SAP Business Network\nHow to Guide for Suppliers .devreser\nsthgir\nllA\n.ynapmoc\netailffia\nPAS\nna\nro\nES\nPAS\n5202\n©",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "In the Quality Notification scenario for SAP Ariba integration with SAP ERP/S/4HANA, when confronted with the two limitations—“failure to extract master data due to Quality Notifications of the same type for inbound and outbound inspections” and “buyers being unable to prevent the system from automatically sending modified Quality Notifications”—which two enhancement capabilities does the system provide to resolve these issues? Please provide a comprehensive explanation integrating the specific configuration locations, parameter names, and business value.",
+    "ground_truth": "To address the two pain points described above, Ariba provides two key enhancement capabilities within the SAP Integration Suite and SAP Business Network integration framework:",
+    "context": "Current Behavior Improved Functionality\nWhen the types for the outbound and the inbound quality no- On the Export All Master Data Required for Quality\ntifications are the same, the quality notifiation master data Notification page, you can specify whether you want to use\nexraction program fails to extract the assocaited quality code the same quality notification type for the outbound and the\ngroups and quality code from SAP ERP or SAP S/4HANA. inbound quality notifications.\nFor more information, refer to Importing Master Data for Qual-\nity Notifications in SAP Integration Suite, Managed Gateway for\nSpend Management and SAP Business Network Configuration\nGuide.\nModified quality notifications are sent from SAP ERP or SAP The buyers can configure the parameter, QN_DISABLED to\nS/4HANA to SAP Business Network. Buyrers cannot prevent prevent sending modified quality notifications from SAP ERP\nsending them to SAP Business Network. or SAP S/4HANA to SAP Business Network that are otherwise\nautomatically triggered. This gives more control to the buyers\nin managing quality notifications.\nFor more information, refer to Maintaining Parameters for",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "Based on the document title “SAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network Migration Guide” and the footer annotation “Important Disclaimers and Legal Information PUBLIC 117,” to which category of official deliverable does this document belong? What does the number “117” most likely represent—not the physical page number or publication year—according to SAP/Ariba technical documentation conventions? Provide reasoning based on SAP/Ariba technical documentation practices.",
+    "ground_truth": "This document is an official SAP-published **Migration Guide**, a technical document type, and serves as a formal, controlled solution deliverable for customers and implementation partners. It provides guidance on the evolution path from legacy integration architectures (e.g., traditional Ariba Network Gateway or on-premise middleware) to cloud-native integration solutions—namely, SAP Integration Suite + Managed Gateway for Spend Management + SAP Business Network.",
+    "context": "and abilities.\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nMigration Guide\nImportant Disclaimers and Legal Information PUBLIC 117",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "Which outbound transaction statuses can be monitored using transaction code SLG1?",
+    "ground_truth": "使用事务代码 SLG1 可以监控通过 SAP Integration Suite、Managed Gateway for Spend Management 和 SAP Business Network 发送给供应商的受支持 outbound 交易的状态。",
+    "context": "• CHANGE_OUT_IDOC_IN: To change outbound IDocs message control\n• CHANGE_PROXY: To change parameters when setting up service name or logical port for proxies\n Note\nEnsure that you check the IP_SOLUTION parameter to identify the solution for which you are\nimplementing the method.\nSending Document Status Update\nUsing the document status update, you can monitor status of all transaction that you send from your SAP ERP or\nSAP S/4HANA system through SAP Integration Suite, managed gateway for spend management and SAP Business\nNetwork to suppliers on SAP Business Network and send the document status update for transactions that you\nreceive, to suppliers on SAP Business Network.\nThe following table lists the object, subobject, and interface to monitor the status of supported outbound\ntransactions using the transaction code SLG1:\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\nConfiguring General Settings for Transaction Documents PUBLIC 35",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "What tax-related information is included in payment proposals?",
+    "ground_truth": "税类别（Tax category）、税所在地（tax jurisdiction）、该税类别和税所在地的总税额（Total tax amount for the tax category and tax location）、适用的总税额（Total tax applicable）。",
+    "context": "immediatePay that stores information about scheduled payments. These documents list scheduled payment\ndates, discount amounts, and net amounts.\nThe payment proposals contain the following details:\n• Tax category\n• Tax location (tax jurisdiction)\n• Discount Basis amount\n• Total tax amount for the tax category and tax location\n• Total tax applicable\n• Discount amount\n• Invoice ID\n• Invoice date\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nOverview Guide\n146 PUBLIC Transactions for SAP Business Network",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "In the integration scenario between SAP S/4HANA Cloud Public Edition and SAP Business Network, when a buyer initiates Supplier Quick Enablement via SAP Integration Suite based on an RFQ or cRFQ, what are the key constraints and associated information regarding communication method support, account type restrictions, and related technical context (e.g., message structure and integration documentation)? Please provide a comprehensive explanation.",
+    "ground_truth": "The rapid enablement process has the following three key constraints and associated information:",
+    "context": " Note\nSimilarly, for Quote Message, the extrinsic is available under QuoteMessageHeader.\n• Buyers can create new SAP Business Network accounts on behalf of suppliers, based on the Request for\nQuotation (RFQ) or Central Procurement quotes (cRFQ) sent from SAP S/4HANA Cloud to SAP Business\nNetwork Discovery through SAP Integration Suite, managed gateway for spend management and SAP\nBusiness Network.\n• Quick enablement of suppliers based on the RFQ or cRFQ sent from SAP S/4HANA Cloud to SAP Business\nNetwork Discovery does not support fax as a communication method. It supports only email.\n• SAP Business Network Discovery does not support quick enablement for ANID test accounts (ANID-T).\nYou can find more information about this integration scenario in the following documents:\nFeature Overview Setup Instructions\nAutomation of Central Procurement Quotes with SAP Setting Up Automation of Central Procurement Quotes with\nBusiness Network (5JT) SAP Business Network (5JT)\nSubcontracting with SAP Business Network (5I2)\nThe SAP S/4HANA Cloud Public Edition to SAP Business Network integration through SAP Integration Suite,",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "如果未在“Activate Additional Outbound Messages for Specific Vendors”表中维护任何供应商，采购申请（purchase requisition）交易将与SAP Business Network集成的范围是什么？",
+    "ground_truth": "Purchase requisition transactions will be integrated with all suppliers in the SAP Business Network (i.e., all suppliers in the SAP Business Network Vendor Table [BN_VENDOR table]).",
+    "context": "table (the ARBCIG_OB_VENDOR database table) in the Maintain Vendor for the Outbound Transaction node in\nSPRO.\nIn the Activate Additional Outbound Messages for Specific Vendors table, you can maintain only a subset of the\nvendors that you have maintained in the SAP Business Network Vendor Table (the BN_VENDOR table).\n Note\nIf you have not maintained any vendors in the Activate Additional Outbound Messages for Specific Vendors\ntable, the purchase requisition transaction is integrated with SAP Business Network for all the suppliers in the\nSAP Business Network Vendor Table table.\nFor more information, refer to Maintaining Specific Vendors and Company Codes as Recipients of Transactions in\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network Configuration Guide.\nPrerequisites\n• You must perform the following actions on SAP ERP:\n• Enable SAP Integration Suite, managed gateway for spend management and SAP Business Network on\nSAP Business Network. For more information, see Enabling the SAP Integration Suite, Managed Gateway\nfor Spend Management and SAP Business Network on SAP Business Network in the SAP Integration Suite,",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "In the SAP Ariba system, what status message appears at the top of the page after updating the baseline XML file for test cases?",
+    "ground_truth": "Baseline is updated",
+    "context": "5. On the right side of the test suite record, click the See Details icon ( )\n6. To view the details of the test case, click the See Details icon ( ) on the right side of the test case.\n7. In the detailed view of the updated test case, review and ensure the accuracy of the updates. At the bottom of\nthe page, click Update BaseLine to use the target XML file as the baseline XML for re-running the test in the\nfuture.\nOn successful update of the baseline XML file to the target XML file, the status Baseline is updated is\ndisplayed at the top of the page.\nViewing the History of a Test Case Record\nContext\nPerform the following steps to view the history of a test case record.\nProcedure\n1. Log on to the SAP Integration Suite, managed gateway for spend management and SAP Business Network\nportal.\n2. On the SAP Integration Suite, managed gateway for spend management and SAP Business Network page, click\nTest Central.\n3. Click Add Regression Test Suite.\nThe Regression Test Suites dashboard displays.\n4. In the System ID dropdown, select the system ID of the SAP ERP or SAP S/4HANA system connected to SAP",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "What is the BAdI method name used to modify the status update message for a rejected invoice?",
+    "ground_truth": "CHANGE_REJECTED",
+    "context": "Transaction BAdI Description Method\nInvoice status update ARBCIG_INVOICESTATU To customize invoice status • CHANGE_PROCESS_B\nSUPDATE update message. SIK: To modify invoice\nstatus update message\nfor open invoices.\n• CHANGE_PROCESS_B\nSAK: To modify invoice\nstatus update message\nfor closed invoices.\n• CHANGE_PARTIALPA\nID: To modify invoice\nstatus update message\nfor partially paid invoi-\nces.\n• CHANGE_ISU_STATU\nS: To modify invoice sta-\ntus update message for\nfully paid invoices.\n• CHANGE_REVERSED:\nTo modify invoice status\nupdate message for re-\nversed invoices.\n• CHANGE_INSERTTAB\nLE: To modify data be-\nfore inserting into in-\nvoice status update ta-\nble.\n• CHECK_CHANGED: To\ncheck change in fields of\na changed invoice.\n• CHANGE_REJECTED:\nTo modify invoice status\nupdate message for re-\njected invoices.\n• CHANGE_PARKED: To\nmodify invoice status\nupdate message for\nparked invoices.\n• PUBLISH_BEFORE_S\nEND: To modify invoice\nstatus update message\nbefore sending to SAP\nBusiness Network.\n• PUBLISH_AFTER_SE\nND: To post-process the\nSAP Integration Suite, Managed Gateway for Spend Management and SAP Business Network\nConfiguration Guide\nCustomization PUBLIC 591",
+    "type": "integration",
+    "question_type": "simple"
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "question": "What is SAP Integration Suite, managed gateway for spend management and SAP Business Network?",
+    "ground_truth": "SAP Integration Suite, managed gateway for spend management and SAP Business Network is a cloud-based integration solution that connects SAP ERP or SAP S/4HANA systems with SAP Ariba solutions and SAP Business Network. It enables real-time data exchange for procurement transactions including purchase orders, invoices, receipts, and master data synchronization.",
+    "context": "SAP Integration Suite, managed gateway for spend management and SAP Business Network provides integration between SAP backend systems (SAP ERP or SAP S/4HANA) and SAP Ariba cloud solutions. The solution supports various transaction types including purchase orders, order confirmations, ship notices, invoices, service sheets, and master data. It uses standard protocols like cXML and IDoc for data exchange and provides monitoring and error handling capabilities.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "What are the main transaction types supported by SAP Integration Suite for integration between SAP ERP and SAP Business Network?",
+    "ground_truth": "The main transaction types include purchase orders (PO), order confirmations, advance ship notices (ASN), service entry sheets, invoices, receipts, payment batches, remittance advice, and master data synchronization (suppliers, materials, contracts, catalogs). These transactions flow bidirectionally between SAP ERP/S/4HANA and SAP Business Network.",
+    "context": "SAP Integration Suite supports comprehensive transaction integration including outbound transactions from SAP ERP (purchase orders, payment batches, master data) and inbound transactions to SAP ERP (order confirmations, ship notices, invoices, service sheets). The solution handles both transactional documents and master data synchronization to ensure data consistency across systems.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "How does the purchase order integration flow work from SAP ERP to SAP Business Network?",
+    "ground_truth": "When a purchase order is created or changed in SAP ERP, the system generates an IDoc (ORDERS type) which is converted to cXML format by SAP Integration Suite. The cXML OrderRequest document is then transmitted to SAP Business Network where it is delivered to the supplier. The supplier can view and respond to the order through the Ariba Network interface. Status updates and confirmations flow back to SAP ERP through the reverse integration path.",
+    "context": "Purchase order integration begins with PO creation in SAP ERP using transaction ME21N or ME22N. The system triggers output determination which creates an ORDERS IDoc. SAP Integration Suite converts the IDoc to cXML OrderRequest format and sends it to SAP Business Network. The network routes the order to the supplier's account. Suppliers can accept, reject, or request changes to the order, and these responses are converted back to IDocs and posted in SAP ERP.",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "What is the purpose of master data integration in SAP Integration Suite, and what types of master data can be synchronized?",
+    "ground_truth": "Master data integration ensures that reference data is consistent between SAP ERP and SAP Ariba solutions. Key master data types that can be synchronized include supplier master data, material master data, contract master data, cost center data, GL account data, and organizational structure data. This synchronization enables accurate transaction processing and reporting across both systems.",
+    "context": "Master data integration is critical for maintaining data consistency across SAP ERP and SAP Ariba environments. The integration supports various master data objects including suppliers (vendor master), materials (product catalog), contracts (purchasing agreements), and financial master data (cost centers, GL accounts, profit centers). Master data can be published from SAP ERP to Ariba solutions using scheduled jobs or real-time triggers.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "How does invoice integration work when a supplier submits an invoice through SAP Business Network?",
+    "ground_truth": "When a supplier creates an invoice in SAP Business Network, the system generates a cXML InvoiceDetailRequest document. SAP Integration Suite receives this cXML document, validates it, and converts it to an IDoc (INVOIC type). The IDoc is then posted to SAP ERP where it creates an invoice document. The system performs three-way matching (PO, goods receipt, invoice) and routes the invoice for approval if needed. Status updates are sent back to the supplier through SAP Business Network.",
+    "context": "Invoice integration enables suppliers to submit invoices electronically through SAP Business Network. The supplier creates an invoice referencing a purchase order, and the system converts it to cXML format. SAP Integration Suite transforms the cXML to an INVOIC IDoc and posts it in SAP ERP using transaction MIRO or automated posting. The ERP system validates the invoice against the purchase order and goods receipt, performs tolerance checks, and initiates the approval workflow if required. Invoice status updates flow back to the supplier.",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What is the role of output determination in SAP ERP for integration with SAP Business Network?",
+    "ground_truth": "Output determination controls which documents are sent from SAP ERP to SAP Business Network and how they are transmitted. It uses condition records to determine when to create output (e.g., for purchase orders, payment batches) and specifies the output type, medium, and timing. For integration, output types are configured to trigger IDoc creation which is then processed by SAP Integration Suite for transmission to SAP Business Network.",
+    "context": "Output determination in SAP ERP is configured using transaction NACE. For purchase order integration, output types like NEU (new PO) or AEN (PO change) are defined with medium '6' (EDI/IDoc). When a PO is created or changed, the system evaluates output determination conditions and creates the appropriate IDoc. The output can be triggered immediately or scheduled for batch processing. Output determination ensures that only relevant documents are sent to suppliers through SAP Business Network.",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "What are the key configuration steps required in SAP ERP to enable integration with SAP Business Network?",
+    "ground_truth": "Key configuration steps include: (1) installing the SAP Integration Suite add-on, (2) configuring RFC destinations to connect to the integration gateway, (3) setting up partner profiles for IDoc processing, (4) configuring output determination for outbound documents, (5) maintaining message control settings, (6) setting up background jobs for master data synchronization, (7) configuring user authorizations, and (8) activating required business functions and switches.",
+    "context": "SAP ERP configuration for integration involves multiple steps across different areas. Technical setup includes installing the add-on component, configuring RFC connections, and setting up IDoc partner profiles. Business configuration includes output determination setup in NACE, message control configuration, and master data extraction settings. Authorization setup ensures users have appropriate permissions. Background jobs must be scheduled for periodic master data synchronization and error monitoring.",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "How does service entry sheet integration work between SAP Business Network and SAP ERP?",
+    "ground_truth": "Service entry sheet integration allows suppliers to submit service confirmations through SAP Business Network for service-based purchase orders. The supplier creates a service entry sheet in the network, which is converted to cXML format. SAP Integration Suite transforms the cXML to an IDoc and posts it in SAP ERP using transaction ML81N. The service entry sheet is validated against the purchase order service specifications, and upon approval, it can be used for invoice verification and payment processing.",
+    "context": "For service procurement, suppliers can submit service entry sheets through SAP Business Network. The service entry sheet documents the services performed, including service descriptions, quantities, dates, and any additional information. The cXML ServiceEntryRequest is converted to an IDoc and posted in SAP ERP. The system validates the service entry against the purchase order, checks for over-delivery, and routes it for approval if configured. Approved service entries can be referenced during invoice processing.",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "What is the purpose of the cXML protocol in SAP Business Network integration?",
+    "ground_truth": "cXML (commerce eXtensible Markup Language) is a standardized XML-based protocol used for exchanging business documents between SAP Business Network and connected systems. It provides a common format for documents like purchase orders, invoices, and catalogs, enabling interoperability between different systems regardless of their internal formats. cXML ensures consistent data structure and semantics across the integration.",
+    "context": "cXML is the standard protocol used by SAP Business Network for B2B document exchange. It defines document types like OrderRequest, InvoiceDetailRequest, ConfirmationRequest, and ShipNoticeRequest. Each document type has a defined schema with required and optional fields. SAP Integration Suite handles the conversion between SAP ERP's internal formats (IDocs) and cXML, ensuring that data is properly mapped and validated during transmission.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "How does payment batch integration work when processing supplier payments through SAP Business Network?",
+    "ground_truth": "Payment batch integration enables automatic notification of suppliers when payments are processed in SAP ERP. When a payment run is executed, SAP ERP generates payment data which is converted to cXML PaymentBatchRequest format by SAP Integration Suite. This document is sent to SAP Business Network, which notifies suppliers about the payment details including amount, payment method, and remittance information. Suppliers can view payment status and remittance details through their Ariba Network account.",
+    "context": "Payment integration supports the payment notification process. After executing a payment run in SAP ERP (transaction F110), the system can generate payment batch information. SAP Integration Suite converts this to cXML format and transmits it to SAP Business Network. The payment batch includes details like payment amount, payment date, invoice references, and bank information. Suppliers receive notifications and can access detailed remittance information, improving cash flow visibility and reducing payment inquiries.",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What monitoring and error handling capabilities does SAP Integration Suite provide?",
+    "ground_truth": "SAP Integration Suite provides comprehensive monitoring through the Integration Portal, which displays transaction status, error messages, and processing logs. Users can view document flow, track message processing, and identify failed transactions. Error handling includes automatic retry mechanisms, error queues for manual intervention, and detailed error logs. The system also provides alerts and notifications for critical errors, enabling proactive issue resolution.",
+    "context": "Monitoring capabilities include real-time dashboards showing transaction volumes, success rates, and error statistics. The Integration Portal allows users to search for specific documents, view processing details, and access error messages. Failed messages can be reprocessed after correcting errors. The system maintains audit logs for compliance and troubleshooting. Administrators can configure alerts for specific error conditions and set up automated error handling rules.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "What are the differences between synchronous and asynchronous integration patterns in SAP Integration Suite?",
+    "ground_truth": "Synchronous integration requires immediate response from the receiving system before proceeding, ensuring real-time validation and confirmation. It's used for scenarios requiring immediate feedback like catalog searches. Asynchronous integration sends messages without waiting for immediate response, allowing the sender to continue processing. Most document exchanges (POs, invoices) use asynchronous patterns for better performance and reliability. Asynchronous processing includes queuing, retry mechanisms, and eventual consistency.",
+    "context": "SAP Integration Suite supports both synchronous and asynchronous communication patterns. Synchronous calls are used for real-time scenarios like punchout catalogs where immediate response is needed. Asynchronous processing is used for most transactional documents, where messages are queued and processed independently. Asynchronous patterns provide better scalability, fault tolerance, and decoupling between systems. The integration layer handles message persistence, retry logic, and error handling for asynchronous flows.",
+    "type": "integration",
+    "question_type": "reasoning"
+  },
+  {
+    "question": "How does supplier master data synchronization work from SAP ERP to SAP Ariba solutions?",
+    "ground_truth": "Supplier master data synchronization extracts vendor information from SAP ERP and publishes it to SAP Ariba solutions. The process includes extracting vendor master records, transforming them to the required format, and uploading them to Ariba. Key data includes supplier name, address, contact information, payment terms, and tax information. Synchronization can be scheduled periodically or triggered by changes. The integration ensures that supplier information is consistent across procurement and sourcing applications.",
+    "context": "Supplier master data integration uses extraction programs in SAP ERP to collect vendor information from tables like LFA1 and LFB1. The data is formatted according to Ariba's requirements and transmitted through SAP Integration Suite. The synchronization process can be configured to include specific vendor types, company codes, or purchasing organizations. Delta synchronization sends only changed records to optimize performance. Suppliers synchronized to Ariba can be used in sourcing events, contracts, and procurement processes.",
+    "type": "integration",
+    "question_type": "multi_context"
+  },
+  {
+    "question": "What is the purpose of IDoc partner profiles in SAP ERP integration configuration?",
+    "ground_truth": "IDoc partner profiles define the communication parameters between SAP ERP and external systems like SAP Integration Suite. They specify which IDoc types are exchanged, the direction of communication (inbound/outbound), the processing method, and the RFC destination. Partner profiles map logical partners to technical endpoints and control IDoc processing behavior including error handling and status updates.",
+    "context": "Partner profiles are configured in transaction WE20. For SAP Business Network integration, partner profiles are created for the integration gateway as the communication partner. Outbound parameters define which IDoc types (ORDERS, PAYEXT, etc.) are sent and how they are processed. Inbound parameters specify how incoming IDocs (INVOIC, DESADV, etc.) are processed and posted. Partner profiles also define message types, process codes, and RFC destinations used for IDoc transmission.",
+    "type": "integration",
+    "question_type": "simple"
+  },
+  {
+    "question": "How does the integration handle purchase order changes and updates after the initial order has been sent to the supplier?",
+    "ground_truth": "When a purchase order is changed in SAP ERP, the system evaluates output determination to decide if the change should be communicated to the supplier. If triggered, a change message (IDoc type ORDERS with change indicator) is generated and converted to cXML OrderRequest with change details. SAP Business Network receives the update and notifies the supplier of the changes. The supplier can view the change history and respond if needed. The integration maintains version control and ensures both systems reflect the current PO status.",
+    "context": "Purchase order change management involves detecting changes in SAP ERP (transaction ME22N), evaluating output determination for change messages, and transmitting updates to suppliers. The system tracks which fields changed and includes this information in the cXML document. Suppliers receive notifications about PO changes and can see before/after values. Critical changes may require supplier acknowledgment. The integration handles various change scenarios including quantity changes, price updates, delivery date modifications, and line item additions or deletions.",
+    "type": "integration",
+    "question_type": "reasoning"
+  }
+]
